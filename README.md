@@ -43,14 +43,34 @@ From Alphabet Soup’s business team, you have received a CSV containing more th
 
 ### Overview of the analysis: Explain the purpose of this analysis.
 
-**Step 1** 
+**Step 1:** 
+Using my knowledge of Pandas and scikit-learn’s StandardScaler(), I preprocessed the dataset, including:
+* Read in the charity_data.csv to a Pandas DataFrame and removing data that won't add value to our results
+* Identifying the target for the model
+* Identifying the features that will work best for the model by determining the number of unique values and the number of data points for each unique value
+* I used the number of data points for each unique value to pick a cutoff point to bin "rare" categorical variables together in a new value, Other, and then check if the binning was successful.
+* I used pd.get_dummies() to encode categorical variables.
+* I split the preprocessed data into a features array, X, and a target array, y, and used the arrays and the train_test_split function to split the data into training and testing datasets.
+* I then scaled the training and testing features datasets by creating a StandardScaler instance, fitting it to the training data, then using the transform function.
 
-Using your knowledge of Pandas and scikit-learn’s StandardScaler(), you’ll need to preprocess the dataset. This step prepares you for Step 2, where you'll compile, train, and evaluate the neural network model.
+**Step 2:** 
+Using my knowledge of Google Colab, TensorFlow, I designed a neural network/deep learning model, to create a binary classification model that can predict if an Alphabet Soup-funded organization will be successful based on the features in the dataset, taking into consideration how many inputs there are before determining the number of neurons and layers in the model. Finally, I compiled, trained, and evaluated the binary classification model to calculate the model’s loss and accuracy.  This included:
+* Creating a neural network model by assigning the number of input features and nodes for each layer using TensorFlow and Keras.
+* Creating the first hidden layer and choosing an appropriate activation function, and taking into consideration if a second hidden layer is necessary.
+* Creating an output layer with an appropriate activation function.
 
-Using the information we provided in the Challenge files, follow the instructions to complete the preprocessing steps.
+**Step 3:** 
+Using the structure, knowledge, and results of the previous steps, I optimized the model to achieve a target predictive accuracy higher than 75%.  This included:
+* Adjusting the input data to ensure that no variables or outliers are causing confusion in the model, such as:
+    * dropping more or fewer columns
+    * creating more bins for rare occurrences in columns
+    * increasing or decreasing the number of values for each bin
+    * adding more neurons to a hidden layer
+    * adding more hidden layers
+    * using different activation functions for the hidden layers
+    * adding or reducing the number of epochs to the training regimen.
 
-
-### Results: Using bulleted lists and images to support your answers, address the following questions:
+### Results
 
 #### Data Preprocessing
 Q: What variable(s) are the target(s) for your model?
