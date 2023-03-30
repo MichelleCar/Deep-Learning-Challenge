@@ -17,10 +17,10 @@ Deep learning, also a subset of machine learning, uses algorithms to recognize p
 
 Neural networks, and by extension deep learning, can help computers make intelligent decisions with limited human assistance. This is because they can learn and model the relationships between input and output data that are nonlinear and complex.
 
-Source:
-* https://news.mit.edu/2017/explained-neural-networks-deep-learning-0414
-* https://blog.purestorage.com/purely-informational/deep-learning-vs-neural-networks/ 
-* https://aws.amazon.com/what-is/neural-network/
+<sub>Sources:</sub>
+<sub>1) https://news.mit.edu/2017/explained-neural-networks-deep-learning-0414</sub>
+<sub>2) https://blog.purestorage.com/purely-informational/deep-learning-vs-neural-networks/ </sub>
+<sub>3) https://aws.amazon.com/what-is/neural-network/</sub>
 
 ## Case Study: Background
 The nonprofit foundation Alphabet Soup wants a tool that can help it select the applicants for funding with the best chance of success in their ventures. With your knowledge of machine learning and neural networks, you’ll use the features in the provided dataset to create a binary classifier that can predict whether applicants will be successful if funded by Alphabet Soup.
