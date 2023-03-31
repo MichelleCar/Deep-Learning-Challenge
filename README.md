@@ -81,18 +81,15 @@ In a dataset that may hold thousands of unique values that may be difficult to h
 
 After preprocessing the dataset by dropping unnecessary columns and encoding categorical variables:
 
-Question: What variable(s) are the target(s) for your model? 
-Answer:
+*__Question: What variable(s) are the target(s) for your model?__* 
 * The target variable is **IS_SUCCESSFUL**.  As such, it functions as a binary classifier, where the results determine two possible outcomes: either the decision to fund a particular organization is successful or not.
 
-Question: What variable(s) are the features for your model?
-Answer:
-* Reviewing the counts of unique values in each column, and focussing on those that had more than 10 unique values, we narrowed available features for our model to: **NAME, APPLICATION_TYPE, CLASSIFICATION, ASK_AMT**
-* Due to its high variability, I eliminated **ASK_AMT** as a useful feature
-<img width="513" alt="Screenshot 2023-03-30 at 8 14 00 PM" src="https://user-images.githubusercontent.com/115101031/228992643-07d11838-d37a-4529-8d33-650c281725cf.png">
+*__Question: What variable(s) are the features for your model?__*
+* Reviewing the counts of unique values in each column, and focussing on those that had more than 10 unique values, we narrowed available features for our model to: **NAME, APPLICATION_TYPE, CLASSIFICATION**
+* Each have unique counts greater than 10 and provide ideal qualitative properties for training the model
 
-Question: What variable(s) should be removed from the input data because they are neither targets nor features?
-Answer:
+
+*__Question: What variable(s) should be removed from the input data because they are neither targets nor features?__*
 * As part of the preprocessing phase for the analysis, the column labelled EIN was excluded, providing organizational IDs, and as a result, of little value to a predictive analysis
 * With fewer than 10 unique values, AFFILIATION, USE_CASE, ORGANIZATION, STATUS< INCOME_AMT, SPEICAL_CONSIDERATIONS
 * Due to its high variability/subjectivity, I eliminated **ASK_AMT** as a useful feature
@@ -111,14 +108,21 @@ IS_SUCCESSFUL                 2
 
 
 #### Compiling, Training, and Evaluating the Model
-Question: How many neurons, layers, and activation functions did you select for your neural network model, and why?
-Answer:
-For this neural network model, I selected three hidden layers with 20, 27, and 3 neurons respectively. I chose this combination after several iterations and tests with different numbers of neurons and layers, and found that this configuration produced the best results in terms of accuracy and loss. For the activation functions, I chose ReLU for the first hidden layer to introduce non-linearity in the model and improve its performance. I selected sigmoid for the second and third hidden layers as it is better suited for binary classification tasks such as this one. Finally, for the output layer, I used sigmoid activation function to ensure the output is between 0 and 1, which is needed for binary classification.
 
-Question: Were you able to achieve the target model performance?
-Answer:
+*__Question: How many neurons, layers, and activation functions did you select for your neural network model, and why?__*
+* I selected two hidden layers with 80 and 30 neurons, respectively. 
+* I used ReLU (activation function) for the first and second hidden layers.  ReLU is linear function that will output the input directly if it is positive, otherwise, it will output zero. It has become the default activation function for many types of neural networks because a model that uses it is easier to train and often achieves better performance.
+* I selected Sigmoid for the output layer.  If we use a linear activation function in a neural network (such as ReLU), then this model can only learn linearly separable problems. However, with the addition of just one hidden layer and a sigmoid activation function in the hidden layer, the neural network can easily learn a non-linearly separable problem. Using a non-linear function produces non-linear boundaries and hence, the sigmoid function can be used in neural networks for learning complex decision functions. It is well-suited for binary classification tasks.
+* Ultimately, this model produced 5,981 trainable parameters
 
-Question: What steps did you take in your attempts to increase model performance?
-Answer:
+*__Question: Were you able to achieve the target model performance?__*
+Loss value implies how well or poorly a certain model behaves after each iteration of optimization. Typically, with neural networks, we seek to minimize the error.  Ideally, one would expect the reduction of loss after each, or several, iterations.  Accuracy is more straightforward. It measures how well our model predicts by comparing the model predictions with the true values in terms of percentage.
+* After running 100 epochs, our results reflected a 0.56 loss and 73% accuracy.  We did not reach our target performance.
+<img width="604" alt="Screenshot 2023-03-30 at 9 14 19 PM" src="https://user-images.githubusercontent.com/115101031/228998285-b67bbf7c-be90-4c3a-ac51-71261524b427.png">
+<img width="596" alt="Screenshot 2023-03-30 at 9 14 36 PM" src="https://user-images.githubusercontent.com/115101031/228998302-44a80b4c-b8ff-4c3a-9c0c-11f90270845e.png">
+
+*__Question: What steps did you take in your attempts to increase model performance?__*
+
+
 
 ### Summary: Summarize the overall results of the deep learning model. Include a recommendation for how a different model could solve this classification problem, and then explain your recommendation.
