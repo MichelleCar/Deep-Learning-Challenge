@@ -110,10 +110,10 @@ IS_SUCCESSFUL                 2
 #### Compiling, Training, and Evaluating the Model
 
 *__Question: How many neurons, layers, and activation functions did you select for your neural network model, and why?__*
-* I selected two hidden layers with 80 and 30 neurons, respectively. 
-* I used ReLU (activation function) for the first and second hidden layers.  ReLU is linear function that will output the input directly if it is positive, otherwise, it will output zero. It has become the default activation function for many types of neural networks because a model that uses it is easier to train and often achieves better performance.
-* I selected Sigmoid for the output layer.  If we use a linear activation function in a neural network (such as ReLU), then this model can only learn linearly separable problems. However, with the addition of just one hidden layer and a sigmoid activation function in the hidden layer, the neural network can easily learn a non-linearly separable problem. Using a non-linear function produces non-linear boundaries and hence, the sigmoid function can be used in neural networks for learning complex decision functions. It is well-suited for binary classification tasks.
-* Ultimately, this model produced 5,981 trainable parameters
+* Features used: APPLICATION_TYPE, CLASSIFICATION
+* Number of hidden layers: Two (with 80 and 30 neurons, respectively)
+* Activation Functions: I used ReLU (activation function) for the first and second hidden layers.  ReLU is linear function that will output the input directly if it is positive, otherwise, it will output zero. It has become the default activation function for many types of neural networks because a model that uses it is easier to train and often achieves better performance. I selected Sigmoid for the output layer.  If we use a linear activation function in a neural network (such as ReLU), then this model can only learn linearly separable problems. However, with the addition of just one hidden layer and a sigmoid activation function in the hidden layer, the neural network can easily learn a non-linearly separable problem. Using a non-linear function produces non-linear boundaries and hence, the sigmoid function can be used in neural networks for learning complex decision functions. It is well-suited for binary classification tasks.
+* Trainable Parameters: 5,981
 
 *__Question: Were you able to achieve the target model performance?__*
 Loss value implies how well or poorly a certain model behaves after each iteration of optimization. Typically, with neural networks, we seek to minimize the error.  Ideally, one would expect the reduction of loss after each, or several, iterations.  Accuracy is more straightforward. It measures how well our model predicts by comparing the model predictions with the true values in terms of percentage.
@@ -123,6 +123,43 @@ Loss value implies how well or poorly a certain model behaves after each iterati
 
 *__Question: What steps did you take in your attempts to increase model performance?__*
 
+**Optimizing Model 1**
+* Features used: NAME, APPLICATION_TYPE, CLASSIFICATION
+* Number of hidden layers: Three (with 20, 27 and 3 neurons, respectively)
+* Activation Functions: ReLU (first hidden layer), Sigmoid (second & third hidden layer, outer layer)
+* Trainable Parameters: 6,155
+* Epochs: 100
+* Loss: 0.46
+* Accuracy: 78%
+* Target reached: Yes
 
+<img width="358" alt="Screenshot 2023-03-30 at 9 44 06 PM" src="https://user-images.githubusercontent.com/115101031/229001714-d67ccb5e-d9de-4445-8d44-b9ca6c60a013.png"><img width="342" alt="Screenshot 2023-03-30 at 9 44 18 PM" src="https://user-images.githubusercontent.com/115101031/229001732-f513ae6a-08b5-4eaa-a94c-0fa0a1550fb3.png">
+
+**Optimizing Model 2**
+* Features used: NAME, APPLICATION_TYPE, CLASSIFICATION
+* Number of hidden layers: Three (with 7, 14 and 21 neurons, respectively)
+* Activation Functions: ReLU (first, second and third hidden layer), Sigmoid (outer layer)
+* Trainable Parameters: 2,318
+* Epochs: 100
+* Loss: 0.46
+* Accuracy: 78%
+* Target reached: Yes
+
+<img width="345" alt="Screenshot 2023-03-30 at 9 47 38 PM" src="https://user-images.githubusercontent.com/115101031/229002182-c60bab99-86fa-41bc-96f2-9da7eb28766f.png"><img width="342" alt="Screenshot 2023-03-30 at 9 47 50 PM" src="https://user-images.githubusercontent.com/115101031/229002208-511c90d1-d726-4515-8ac6-1fc05a135ed1.png">
+
+**Optimizing Model 3**
+* Features used: NAME, APPLICATION_TYPE, CLASSIFICATION
+* Number of hidden layers: Two (with 80 and 30, respectively)
+* Activation Functions: ReLU (first, second hidden layer), Sigmoid (outer layer)
+* Trainable Parameters: 37,821
+* Epochs: 100
+* Loss: 0.48
+* Accuracy: 79%
+* Target reached: Yes
+
+<img width="342" alt="Screenshot 2023-03-30 at 9 51 36 PM" src="https://user-images.githubusercontent.com/115101031/229002708-b8e4d5e5-a521-475a-9d78-43ba576d8b14.png"><img width="342" alt="Screenshot 2023-03-30 at 9 51 44 PM" src="https://user-images.githubusercontent.com/115101031/229002724-681c5217-431e-42ef-b80f-65fdfbcb5da1.png">
 
 ### Summary: Summarize the overall results of the deep learning model. Include a recommendation for how a different model could solve this classification problem, and then explain your recommendation.
+In summary, the deep learning model using TensorFlow and Keras was able to achieve a predictive accuracy of 78% in classifying the success of organizations funded by Alphabet Soup based on their features. The model underwent several optimization attempts, including dropping columns, binning categorical variables, adding hidden layers and neurons, and trying different activation functions, among other adjustments. While the target predictive accuracy of 75% was achieved, it required significant optimization attempts to reach that level.
+
+One recommendation for solving this classification problem would be to try a different type of model, such as a Random Forest Classifier or a Support Vector Machine (SVM). These models have been shown to be effective in binary classification problems and may be able to achieve a higher accuracy without the need for extensive optimization attempts. Additionally, they can handle both numerical and categorical variables and can handle outliers and imbalanced datasets well, which may be present in this dataset. Therefore, it may be worth exploring these alternative models as a potential solution to the classification problem.
