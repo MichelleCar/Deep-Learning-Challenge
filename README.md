@@ -71,15 +71,54 @@ Using the structure, knowledge, and results of the previous steps, I optimized t
     * adding or reducing the number of epochs to the training regimen.
 
 ### Results
+The purpose of this analysis is to create a deep learning neural network to predict the success rate of applicants who receive funding from Alphabet Soup Charity. The dataset contains more than 34,000 organizations, with information related to their application type, affiliated sector of industry, government organization classification, use case for funding, income classification, funding amount requested, and whether the money was used effectively. 
+
+The analysis involves preprocessing the dataset by dropping unnecessary columns, encoding categorical variables, and splitting the data into training and testing datasets. The neural network model is then designed, trained, and evaluated to determine its loss and accuracy. Finally, the model is optimized using various methods such as adjusting input data, adding more neurons and hidden layers, using different activation functions, and adjusting the number of epochs. The ultimate goal is to achieve a predictive accuracy higher than 75% and save the optimized model as an HDF5 file.
+
 
 #### Data Preprocessing
-Q: What variable(s) are the target(s) for your model?
-Q: What variable(s) are the features for your model?
-Q: What variable(s) should be removed from the input data because they are neither targets nor features?
+In a dataset that may hold thousands of unique values that may be difficult to handle by a neural network, a good tool would encode the meaning of the categories in some meaningful way while keeping the number of dimensions relatively low.  In essence, we are trying to develop a model that recognizes patterns in the data.  As a rule, categorical data is a set of symbols that describe a certain higher level attribute of some object, system or entity of interest. In the dataset provided, we have to determine features that can be replicated and that can provide a reliable and consistent training template for the model.  As such, a categorical variable is a variable that can take on one of a limited, and usually fixed number of possible values, assigning each individual or other unit of observation to a particular group or nominal category on the basis of some qualitative property.
+
+After preprocessing the dataset by dropping unnecessary columns and encoding categorical variables:
+
+Question: What variable(s) are the target(s) for your model? 
+Answer:
+* The target variable is **IS_SUCCESSFUL**.  As such, it functions as a binary classifier, where the results determine two possible outcomes: either the decision to fund a particular organization is successful or not.
+
+Question: What variable(s) are the features for your model?
+Answer:
+* Reviewing the counts of unique values in each column, and focussing on those that had more than 10 unique values, we narrowed available features for our model to: **NAME, APPLICATION_TYPE, CLASSIFICATION, ASK_AMT**
+* Due to its high variability, I eliminated **ASK_AMT** as a useful feature
+<img width="513" alt="Screenshot 2023-03-30 at 8 14 00 PM" src="https://user-images.githubusercontent.com/115101031/228992643-07d11838-d37a-4529-8d33-650c281725cf.png">
+
+Question: What variable(s) should be removed from the input data because they are neither targets nor features?
+Answer:
+* As part of the preprocessing phase for the analysis, the column labelled EIN was excluded, providing organizational IDs, and as a result, of little value to a predictive analysis
+* With fewer than 10 unique values, AFFILIATION, USE_CASE, ORGANIZATION, STATUS< INCOME_AMT, SPEICAL_CONSIDERATIONS
+* Due to its high variability/subjectivity, I eliminated **ASK_AMT** as a useful feature
+
+NAME                      19568
+APPLICATION_TYPE             17
+AFFILIATION                   6
+CLASSIFICATION               71
+USE_CASE                      5
+ORGANIZATION                  4
+STATUS                        2
+INCOME_AMT                    9
+SPECIAL_CONSIDERATIONS        2
+ASK_AMT                    8747
+IS_SUCCESSFUL                 2
+
 
 #### Compiling, Training, and Evaluating the Model
-Q: How many neurons, layers, and activation functions did you select for your neural network model, and why?
-Q: Were you able to achieve the target model performance?
-Q: What steps did you take in your attempts to increase model performance?
+Question: How many neurons, layers, and activation functions did you select for your neural network model, and why?
+Answer:
+For this neural network model, I selected three hidden layers with 20, 27, and 3 neurons respectively. I chose this combination after several iterations and tests with different numbers of neurons and layers, and found that this configuration produced the best results in terms of accuracy and loss. For the activation functions, I chose ReLU for the first hidden layer to introduce non-linearity in the model and improve its performance. I selected sigmoid for the second and third hidden layers as it is better suited for binary classification tasks such as this one. Finally, for the output layer, I used sigmoid activation function to ensure the output is between 0 and 1, which is needed for binary classification.
+
+Question: Were you able to achieve the target model performance?
+Answer:
+
+Question: What steps did you take in your attempts to increase model performance?
+Answer:
 
 ### Summary: Summarize the overall results of the deep learning model. Include a recommendation for how a different model could solve this classification problem, and then explain your recommendation.
