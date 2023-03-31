@@ -159,7 +159,23 @@ Loss value implies how well or poorly a certain model behaves after each iterati
 
 <img width="342" alt="Screenshot 2023-03-30 at 9 51 36 PM" src="https://user-images.githubusercontent.com/115101031/229002708-b8e4d5e5-a521-475a-9d78-43ba576d8b14.png"><img width="342" alt="Screenshot 2023-03-30 at 9 51 44 PM" src="https://user-images.githubusercontent.com/115101031/229002724-681c5217-431e-42ef-b80f-65fdfbcb5da1.png">
 
-### Summary: Summarize the overall results of the deep learning model. Include a recommendation for how a different model could solve this classification problem, and then explain your recommendation.
-In summary, the deep learning model using TensorFlow and Keras was able to achieve a predictive accuracy of 78% in classifying the success of organizations funded by Alphabet Soup based on their features. The model underwent several optimization attempts, including dropping columns, binning categorical variables, adding hidden layers and neurons, and trying different activation functions, among other adjustments. While the target predictive accuracy of 75% was achieved, it required significant optimization attempts to reach that level.
+### Summary
+In summary, by iterating through three different models, I was able to achieve a predictive accuracy of 79% in classifying the success of organizations funded by Alphabet Soup Charity. Optimization attempts, including dropping columns, binning categorical variables, adding hidden layers and neurons, and trying different activation functions, among other adjustments, demonstrated the sensitivity and versatility of deep learning neural networks. While I reached the target, it required several optimization attempts to reach 79%.
 
-One recommendation for solving this classification problem would be to try a different type of model, such as a Random Forest Classifier or a Support Vector Machine (SVM). These models have been shown to be effective in binary classification problems and may be able to achieve a higher accuracy without the need for extensive optimization attempts. Additionally, they can handle both numerical and categorical variables and can handle outliers and imbalanced datasets well, which may be present in this dataset. Therefore, it may be worth exploring these alternative models as a potential solution to the classification problem.
+What I learned in this project was that while training the deep learning the challenge of choosing the right weights for the model is a daunting task, especially if I begin to imagine a deep learning model that may consist of millions of parameters. It raises the need to choose a suitable optimization algorithm. You can use different optimizers in the model to make changes in your weights and learning rate. However, choosing the best optimizer depends upon the application. In a small project like this one, it is possible to try 2-3 different optimization approaches and find one that shows the best results. But, this approach would not be as effective when dealing with hundreds of gigabytes of data, even a single epoch can take a considerable amount of time. So randomly choosing an algorithm is not ideal.
+
+One additional optimizer I could have tried is the *Adam* deep learning optimizer. *Adam* optimizer updates the learning rate for each network weight individually. The *Adam* optimizer has several benefits, which it why it so widely used. It is adapted as a benchmark for deep learning and recommended as a default optimization algorithm. The algorithm is straightforward to implement, has a faster running time, low memory requirements, and requires less tuning than any other optimization algorithm. 
+
+Ultimately, deep learning neural networks provide a powerful basis for machine learning.  
+
+*__Pros__*
+* Neural networks are flexible and can be used for both regression and classification problems. Any data which can be made numeric can be used in the model, as neural network is a mathematical model with approximation functions.
+* Neural networks are good to model with nonlinear data with large number of inputs; for example, images. It is reliable in an approach of tasks involving many features. It works by splitting the problem of classification into a layered network of simpler elements.
+* Once trained, the predictions are pretty fast.
+* Neural networks can be trained with any number of inputs and layers.
+* Neural networks work best with more data points.
+
+*__Cons__*
+* Neural networks are black boxes, meaning we cannot know how much each independent variable is influencing the dependent variables.
+* It is computationally very expensive and time consuming to train with traditional CPUs.
+* Neural networks depend a lot on training data. This leads to the problem of over-fitting and generalization. The mode relies more on the training data and may be tuned to the data.
