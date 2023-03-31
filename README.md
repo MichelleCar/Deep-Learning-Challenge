@@ -118,8 +118,8 @@ IS_SUCCESSFUL                 2
 *__Question: Were you able to achieve the target model performance?__*
 Loss value implies how well or poorly a certain model behaves after each iteration of optimization. Typically, with neural networks, we seek to minimize the error.  Ideally, one would expect the reduction of loss after each, or several, iterations.  Accuracy is more straightforward. It measures how well our model predicts by comparing the model predictions with the true values in terms of percentage.
 * After running 100 epochs, our results reflected a 0.56 loss and 73% accuracy.  We did not reach our target performance.
-<img width="604" alt="Screenshot 2023-03-30 at 9 14 19 PM" src="https://user-images.githubusercontent.com/115101031/228998285-b67bbf7c-be90-4c3a-ac51-71261524b427.png">
-<img width="596" alt="Screenshot 2023-03-30 at 9 14 36 PM" src="https://user-images.githubusercontent.com/115101031/228998302-44a80b4c-b8ff-4c3a-9c0c-11f90270845e.png">
+
+<img width="423" alt="Screenshot 2023-03-30 at 9 14 19 PM" src="https://user-images.githubusercontent.com/115101031/228999653-92af98f1-53b2-47d8-831c-cd419cfa86b2.png"><img width="417" alt="Screenshot 2023-03-30 at 9 14 36 PM" src="https://user-images.githubusercontent.com/115101031/228999659-6667c9ca-b81d-462d-a15e-d91aa27f21bd.png">
 
 *__Question: What steps did you take in your attempts to increase model performance?__*
 
