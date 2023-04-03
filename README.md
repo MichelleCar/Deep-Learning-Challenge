@@ -90,21 +90,21 @@ After preprocessing the dataset by dropping unnecessary columns and encoding cat
 
 
 *__Question: What variable(s) should be removed from the input data because they are neither targets nor features?__*
-* As part of the preprocessing phase for the analysis, the column labelled EIN was excluded, providing organizational IDs, and as a result, of little value to a predictive analysis
-* With fewer than 10 unique values, AFFILIATION, USE_CASE, ORGANIZATION, STATUS< INCOME_AMT, SPEICAL_CONSIDERATIONS
+* As part of the preprocessing phase for the analysis, providing only organizational IDs, and as a result, of little value to a predictive analysis, the column labelled EIN was excluded
+* With fewer than 10 unique values, AFFILIATION, USE_CASE, ORGANIZATION, STATUS< INCOME_AMT, and SPEICAL_CONSIDERATIONS were excluded
 * Due to its high variability/subjectivity, I eliminated **ASK_AMT** as a useful feature
 
-NAME                      19568
-APPLICATION_TYPE             17
-AFFILIATION                   6
-CLASSIFICATION               71
-USE_CASE                      5
-ORGANIZATION                  4
-STATUS                        2
-INCOME_AMT                    9
-SPECIAL_CONSIDERATIONS        2
-ASK_AMT                    8747
-IS_SUCCESSFUL                 2
+         NAME                      19568
+         APPLICATION_TYPE             17
+         AFFILIATION                   6
+         CLASSIFICATION               71
+         USE_CASE                      5
+         ORGANIZATION                  4
+         STATUS                        2
+         INCOME_AMT                    9
+         SPECIAL_CONSIDERATIONS        2
+         ASK_AMT                    8747
+         IS_SUCCESSFUL                 2
 
 
 #### Compiling, Training, and Evaluating the Model
